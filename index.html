@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ClauDeck — Claude Code on your Stream Deck</title>
+  <meta name="description" content="Every Claude Code session on your Stream Deck: live status, approvals, answers and plan usage. macOS and Windows." />
+  <meta property="og:title" content="ClauDeck — Claude Code on your Stream Deck" />
+  <meta property="og:description" content="One key per session. Approve, answer, focus and watch usage without touching the keyboard." />
+  <meta property="og:image" content="https://claudeck.dev/assets/img/1-hero.png" />
+  <meta property="og:url" content="https://claudeck.dev/" />
+  <link rel="canonical" href="https://claudeck.dev/" />
+  <link rel="icon" href="assets/img/icon-512.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="#top"><img src="assets/img/icon-512.png" alt="" width="28" height="28" /> ClauDeck</a>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#pricing">Lite / Pro</a>
+      <a href="#install">Install</a>
+      <a href="#support">Support</a>
+      <a href="https://github.com/onavascuez/ClauDeckWeb" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+    <a class="btn btn-sm" href="#pricing">Get it</a>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">// stream deck plugin for claude code</p>
+        <h1>Every Claude Code session.<br /><span class="accent">One key.</span></h1>
+        <p class="lead">See who is working, who is waiting for you and who is done. Approve, answer, jump to the terminal and keep an eye on your plan — from the deck.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="#pricing">Get ClauDeck Pro</a>
+          <a class="btn btn-ghost" href="#pricing">Lite is free</a>
+        </div>
+        <ul class="legend">
+          <li><i style="--c:#2f7cf6"></i>working</li>
+          <li><i style="--c:#f5a524"></i>needs you</li>
+          <li><i style="--c:#3dd68c"></i>done</li>
+          <li><i style="--c:#5a6270"></i>idle</li>
+        </ul>
+      </div>
+      <div class="hero-deck reveal">
+        <div class="deck" id="hero-deck" aria-label="Stream Deck with ClauDeck keys">
+          <img data-cycle="overview,overview_calm" src="assets/keys/overview.png" alt="Overview key" />
+          <img data-cycle="s_working,s_working,s_done,s_idle" src="assets/keys/s_working.png" alt="Session working" />
+          <img data-cycle="s_attention,s_attention_dim" data-fast src="assets/keys/s_attention.png" alt="Session waiting" />
+          <img src="assets/keys/s_done.png" alt="Session done" />
+          <img src="assets/keys/s_idle.png" alt="Session idle" />
+          <img src="assets/keys/s_named.png" alt="Named session" />
+          <img src="assets/keys/s_color_blue.png" alt="Colored session" />
+          <img src="assets/keys/s_color_pink.png" alt="Session with agents" />
+          <img src="assets/keys/s_ctx_high.png" alt="Context almost full" />
+          <img src="assets/keys/s_empty.png" alt="Empty slot" />
+          <img src="assets/keys/s_empty.png" alt="Empty slot" />
+          <img data-cycle="f_lockout,f_lockout,h_spark" src="assets/keys/f_lockout.png" alt="Lockout clock" />
+          <img data-cycle="allow_on,allow_on,allow_off" src="assets/keys/allow_on.png" alt="Allow" />
+          <img data-cycle="deny_on,deny_on,deny_off" src="assets/keys/deny_on.png" alt="Deny" />
+          <img data-cycle="u_bars,u_bars_hi" src="assets/keys/u_bars.png" alt="Usage" />
+        </div>
+        <p class="deck-caption">STREAM DECK · live mockup, real key renders</p>
+      </div>
+    </section>
+
+    <!-- STATE STRIP -->
+    <section class="strip" id="features">
+      <div class="strip-head reveal">
+        <h2>A working day, at a glance</h2>
+        <p>Colors tell the story before you read a word. Scroll on for the details.</p>
+      </div>
+      <div class="key-row reveal">
+        <figure><img src="assets/keys/s_working.png" alt="" /><figcaption><b>Working</b><span>tool running · 2 agents · 31% context</span></figcaption></figure>
+        <figure><img src="assets/keys/s_attention.png" alt="" class="blink" /><figcaption><b>Needs you</b><span>permission, question or plan</span></figcaption></figure>
+        <figure><img src="assets/keys/s_done.png" alt="" /><figcaption><b>Done</b><span>finished, not yet looked at</span></figcaption></figure>
+        <figure><img src="assets/keys/s_idle.png" alt="" /><figcaption><b>Idle</b><span>quiet since you last typed</span></figcaption></figure>
+        <figure><img src="assets/keys/s_named.png" alt="" /><figcaption><b>/rename + /color</b><span>your names, your colors</span></figcaption></figure>
+        <figure><img src="assets/keys/s_ctx_high.png" alt="" /><figcaption><b>93% context</b><span>compaction is near</span></figcaption></figure>
+      </div>
+    </section>
+
+    <!-- FEATURE: APPROVE -->
+    <section class="feature">
+      <div class="feature-copy reveal">
+        <p class="eyebrow">// pro · approvals</p>
+        <h2>Approve or deny without touching the keyboard</h2>
+        <p>Keys stay dark until Claude asks. Then they light up with the tool and the command. One tap and Claude keeps going. No tap in 90 seconds, or the plugin is off? Claude shows its normal terminal prompt — nothing is ever blocked.</p>
+        <ul class="ticks">
+          <li>Allow once · Always allow (this session only) · Deny</li>
+          <li>Numbered keys mirror the terminal: 1 Yes · 2 Always · 3 No</li>
+          <li>Your settings files are never modified</li>
+        </ul>
+      </div>
+      <div class="feature-art reveal">
+        <div class="key-grid cols-3">
+          <img src="assets/keys/allow_off.png" alt="Allow, idle" /><img src="assets/keys/always_off.png" alt="Always allow, idle" /><img src="assets/keys/deny_off.png" alt="Deny, idle" />
+          <span class="arrow">Claude asks ↓</span><span></span><span></span>
+          <img src="assets/keys/allow_on.png" alt="Allow, pending" class="glow g-green" /><img src="assets/keys/p_prompt.png" alt="Prompt text" /><img src="assets/keys/deny_on.png" alt="Deny, pending" class="glow g-red" />
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURE: ANSWER -->
+    <section class="feature alt">
+      <div class="feature-art reveal">
+        <div class="key-grid cols-4">
+          <img src="assets/keys/q_prompt.png" alt="Question" class="glow g-amber" />
+          <img src="assets/keys/q_1.png" alt="Option 1" /><img src="assets/keys/q_2.png" alt="Option 2" /><img src="assets/keys/q_3.png" alt="Option 3" />
+        </div>
+      </div>
+      <div class="feature-copy reveal">
+        <p class="eyebrow">// pro · questions</p>
+        <h2>Answer Claude's questions with one key</h2>
+        <p>When Claude asks a multiple-choice question, the options become keys. The question key shows the text; press an option and the answer lands in the session. Several questions? They come one after another.</p>
+        <ul class="ticks">
+          <li>Works in every permission mode, including auto</li>
+          <li>Labels and descriptions straight from Claude</li>
+          <li>Multi-select questions stay in the terminal, and the key says so</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- FEATURE: MENU -->
+    <section class="feature">
+      <div class="feature-copy reveal">
+        <p class="eyebrow">// pro · session menu</p>
+        <h2>Tap a session, get its menu</h2>
+        <p>Short press opens a profile dedicated to that session: allow, deny, answer, jump to its terminal, back. Long press goes straight to the terminal. Two ready-made profiles ship with the plugin for Stream Deck, Mini, XL, + and Neo — nothing to drag.</p>
+        <ul class="ticks">
+          <li>Overview key: totals, one tap to the sessions grid</li>
+          <li>Slot keys re-pack as sessions come and go; pin a project to a fixed key if you prefer</li>
+          <li>Lands on the session's <strong>exact tab</strong> in cmux, tmux, iTerm2 and Terminal; other terminals come to the front</li>
+        </ul>
+      </div>
+      <div class="feature-art reveal">
+        <img class="shot" src="assets/img/6-menu.png" alt="Session menu profile on a Stream Deck" />
+      </div>
+    </section>
+
+    <!-- FEATURE: DISCOVERY -->
+    <section class="feature alt">
+      <div class="feature-art reveal">
+        <img class="shot" src="assets/img/3-session.png" alt="Anatomy of a session key" />
+      </div>
+      <div class="feature-copy reveal">
+        <p class="eyebrow">// pro · sessions</p>
+        <h2>Finds every session, even the ones you forgot</h2>
+        <p>Claude Code hooks report in real time, asynchronously, so Claude never waits on the deck. A process scan and Claude Code's own session registry pick up sessions started before install or idle for days. Background agents are counted; their work never hides a prompt waiting for you.</p>
+        <ul class="ticks">
+          <li>Names from <code>/rename</code>, colors from <code>/color</code></li>
+          <li>Context-window bar per session, styled your way</li>
+          <li>Typed in that terminal? The key knows you saw it</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- FEATURE: FORECAST -->
+    <section class="feature alt">
+      <div class="feature-art reveal">
+        <div class="key-grid cols-3">
+          <img src="assets/keys/f_lockout.png" alt="Lockout clock" class="glow g-amber" /><img src="assets/keys/f_reset.png" alt="Forecast at reset" /><img src="assets/keys/f_burn.png" alt="Burn rate" />
+          <img src="assets/keys/h_spark.png" alt="Usage sparkline" /><img src="assets/keys/h_weekly.png" alt="Weekly peaks" /><img src="assets/keys/f_budget.png" alt="Budget" />
+        </div>
+      </div>
+      <div class="feature-copy reveal">
+        <p class="eyebrow">// pro · forecast &amp; history</p>
+        <h2>Know when you'll hit the wall, before you do</h2>
+        <p>A small usage history kept on your machine turns today's numbers into a lockout clock, a projected percentage at the reset and a burn rate per hour. A sparkline shows the last hours; weekly peaks show the trend. Native alerts fire once per window: an early warning with the predicted lockout time, the hard threshold, and a ping when a nearly full window resets.</p>
+        <ul class="ticks">
+          <li>Your own budget: "80 % by the weekly reset", ahead or behind at a glance</li>
+          <li>Honest when unsure: needs two samples five minutes apart before any estimate</li>
+          <li>24 h of samples, 14 days of hourly averages, 90 days of daily peaks: about 31 KB, deletable in one click</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- FEATURE: USAGE -->
+    <section class="feature usage">
+      <div class="feature-copy reveal">
+        <p class="eyebrow">// lite &amp; pro · plan usage</p>
+        <h2>Your plan limits, five ways</h2>
+        <p>The same numbers as <code>/usage</code>: 5-hour session, 7-day window and per-model, with time to reset as a countdown or a clock time. Pick the layout per key, including a credits view for extra-usage spend. Green, amber, red.</p>
+        <div class="tabs" id="usage-tabs">
+          <button class="on" data-key="u_bars">Bars</button>
+          <button data-key="u_split">Split</button>
+          <button data-key="u_dense">Dense</button>
+          <button data-key="u_rings">Rings</button>
+          <button data-key="u_single">Single</button>
+        </div>
+      </div>
+      <div class="feature-art reveal">
+        <div class="usage-stage">
+          <img id="usage-key" src="assets/keys/u_bars.png" alt="Usage key" />
+          <div class="usage-side">
+            <img src="assets/keys/u_bars_hi.png" alt="Usage, high" />
+            <img src="assets/keys/u_single_7d.png" alt="7 day" />
+            <img src="assets/keys/u_single_model.png" alt="Per model" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="pricing" id="pricing">
+      <div class="reveal">
+        <p class="eyebrow center">// two editions, one codebase</p>
+        <h2 class="center">Start free. Go Pro when the sessions pile up.</h2>
+      </div>
+      <div class="plans">
+        <article class="plan reveal">
+          <header><h3>ClauDeck Lite</h3><p class="price">Free</p></header>
+          <ul>
+            <li class="yes">Plan usage keys, all five layouts</li>
+            <li class="yes">5-hour, 7-day and per-model windows</li>
+            <li class="yes">Reset countdown, tap to refresh</li>
+            <li class="no">Session keys</li>
+            <li class="no">Approvals and answers</li>
+            <li class="no">Session menu and profiles</li>
+            <li class="no">Forecast, history and alerts</li>
+          </ul>
+          <a class="btn btn-ghost" href="https://marketplace.elgato.com/product/claudeck-lite-c9984dee-ad07-40c3-a319-0062a4a7d788" data-store="lite">Get Lite on Marketplace</a>
+        </article>
+        <article class="plan pro reveal">
+          <header><h3>ClauDeck Pro</h3><p class="price"><span data-price>€4.65</span><small> one-time</small></p></header>
+          <ul>
+            <li class="yes">Everything in Lite</li>
+            <li class="yes">One key per session: status, tool, agents, context, name, color</li>
+            <li class="yes">Approve / always-allow / deny from a key</li>
+            <li class="yes">Answer multiple-choice questions</li>
+            <li class="yes">Session menu, overview, bundled profiles for every deck</li>
+            <li class="yes">Focus the terminal, sound when Claude needs you</li>
+            <li class="yes">Forecast: lockout clock, reset projection, burn rate, budget</li>
+            <li class="yes">History: sparkline and weekly peaks</li>
+            <li class="yes">Native alerts, once per window, with your thresholds</li>
+          </ul>
+          <a class="btn btn-primary" href="https://marketplace.elgato.com/product/claudeck-2ed8dd1e-1a28-4442-b5df-7d2e16d4f6d1" data-store="pro">Get Pro on Marketplace</a>
+        </article>
+      </div>
+      <p class="fine reveal">Sold through the Elgato Marketplace. Requires the Claude Code CLI installed natively on macOS 12+ or Windows 10+ and a Claude subscription. Unofficial; not affiliated with Anthropic or Elgato.</p>
+    </section>
+
+    <!-- INSTALL -->
+    <section class="install" id="install">
+      <div class="reveal">
+        <p class="eyebrow center">// three steps</p>
+        <h2 class="center">Installed in a minute</h2>
+      </div>
+      <ol class="steps">
+        <li class="reveal"><span>1</span><h3>Install from Marketplace</h3><p>The Stream Deck app opens and installs it for you.</p></li>
+        <li class="reveal"><span>2</span><h3>Drag a key, press <em>Install hooks</em></h3><p>In the key's settings. ClauDeck registers Claude Code hooks for you — async, never slowing Claude down.</p></li>
+        <li class="reveal"><span>3</span><h3>Tap <em>Overview</em></h3><p>It opens the ready-made profile with a key per session. Sessions you already have open start reporting straight away — no need to restart them.</p></li>
+      </ol>
+    </section>
+
+    <!-- SUPPORT -->
+    <section class="support" id="support">
+      <div class="support-grid">
+        <div class="reveal">
+          <p class="eyebrow">// support</p>
+          <h2>Something off? Tell us where.</h2>
+          <p>Issues and discussions live on the public ClauDeckWeb repository. Include your OS, Stream Deck app version, Claude Code version and the plugin log. The log lives in the plugin folder under <code>logs/</code>; the debug trace of hooks can be switched on with <code>touch ~/.claude/claude-deck/debug</code>.</p>
+          <div class="cta">
+            <a class="btn btn-primary" href="https://github.com/onavascuez/ClauDeckWeb/issues/new?template=bug_report.md" target="_blank" rel="noopener">Report an issue</a>
+            <a class="btn btn-ghost" href="https://github.com/onavascuez/ClauDeckWeb/discussions" target="_blank" rel="noopener">Ask a question</a>
+          </div>
+        </div>
+        <div class="faq reveal">
+          <details open><summary>Which terminals work?</summary><p>Any. The plugin identifies the terminal from the session's environment (Ghostty, iTerm2, Terminal, WezTerm, VS Code, Warp, cmux, Windows Terminal…). Pressing a key raises the session's exact tab in cmux, tmux, iTerm2 and Terminal; every other terminal is brought to the front, since they expose no way to select a tab. macOS asks once for permission to control that app.</p></details>
+          <details><summary>Does it slow Claude down?</summary><p>No. Event hooks are asynchronous. The only synchronous hook is the permission prompt, and only in modes where Claude would ask you anyway. In <code>auto</code> mode it answers instantly and lets Claude's classifier decide.</p></details>
+          <details><summary>What leaves my machine?</summary><p>Nothing, except the call to Anthropic's usage endpoint made with the login token Claude Code already keeps (Keychain on macOS, credentials file on Windows). No analytics, no third-party servers.</p></details>
+          <details><summary>WSL, SSH, containers?</summary><p>Not supported: hooks run where Claude runs and cannot reach the plugin. Claude Code must be installed natively.</p></details>
+          <details><summary>The Stream Deck app refuses to install it</summary><p>If the app is older than 7.1 the install stops with <code>(ContentError) Plugin</code> and no explanation: ClauDeck needs 7.1 or newer. Update the Stream Deck app and install again. On Windows the app’s own updater sometimes reports an update error even though the installer has already downloaded, in which case grab the installer from elgato.com.</p></details>
+          <details><summary>Can I keep my own layout?</summary><p>Yes. Drag any ClauDeck key into any profile. The bundled profiles are a starting point, not a requirement. They keep the same names for ever, so if a future version changes one and you had rearranged it, duplicate your profile first to keep your own version alongside the new one.</p></details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p><img src="assets/img/icon-512.png" alt="" width="20" height="20" /> ClauDeck · <a href="https://github.com/onavascuez/ClauDeckWeb" target="_blank" rel="noopener">support, issues and discussions on GitHub</a></p>
+    <p class="fine">Claude and Claude Code are trademarks of Anthropic. Stream Deck is a trademark of Elgato / Corsair. ClauDeck is an independent project and is not affiliated with either.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
