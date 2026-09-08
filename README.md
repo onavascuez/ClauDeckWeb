@@ -74,7 +74,8 @@ Requirements: Stream Deck app 7.1 or newer · Claude Code CLI installed natively
 
 - **Something broken?** [Open an issue](https://github.com/onavascuez/ClauDeckWeb/issues/new?template=bug_report.md). The template asks for the plugin log; it lives in the plugin folder under `logs/`, and `touch ~/.claude/claude-deck/debug` turns on a trace of every hook call in `~/.claude/claude-deck/hooks.log`.
 - **Question or idea?** [Start a discussion](https://github.com/onavascuez/ClauDeckWeb/discussions).
-- **FAQ**: terminals, performance, privacy, layouts — on the [website](https://claudeck.dev/#support).
+- **Cannot buy it from your country?** The Elgato Marketplace only allows paid purchases in around 35 countries. Everywhere else can still download free products, including [ClauDeck Lite](https://marketplace.elgato.com/product/claudeck-lite-c9984dee-ad07-40c3-a319-0062a4a7d788) — see [Elgato's country list](https://help.elgato.com/hc/en-us/articles/26576111221773-Marketplace-Availability-by-Country). It is a store policy, not a per-product setting. If you are in a supported country and still get blocked, [tell me](https://github.com/onavascuez/ClauDeckWeb/discussions) and I will help you chase it.
+- **FAQ**: terminals, performance, privacy, layouts, country availability — on the [website](https://claudeck.dev/#support).
 
 ## Privacy
 
