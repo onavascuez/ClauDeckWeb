@@ -25,7 +25,7 @@ This repository is the **public home** of ClauDeck: the website at [claudeck.dev
 | Extra-usage credits, countdown or clock-time resets | ✓ | ✓ |
 | One key per Claude Code session: status, tool, agents, context, name, colour | – | ✓ |
 | Approve / always-allow / deny permission prompts from a key | – | ✓ |
-| Answer Claude's multiple-choice questions from a key | – | ✓ |
+| Answer Claude's questions from a key, multi-select included (decks with 3+ rows: Stream Deck, XL) | – | ✓ |
 | Session menu, overview key, bundled profiles for every deck | – | ✓ |
 | Jump to a session's exact terminal tab (cmux, tmux, iTerm2, Terminal; window-level elsewhere) | – | ✓ |
 | Forecast: lockout clock, reset projection, burn rate, budget | – | ✓ |
