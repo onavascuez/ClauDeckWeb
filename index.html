@@ -266,6 +266,7 @@
           <p class="eyebrow">// support</p>
           <h2>Something off? Tell us where.</h2>
           <p>Issues and discussions live on the public ClauDeckWeb repository. Include your OS, Stream Deck app version, Claude Code version and the plugin log. The log lives in the plugin folder under <code>logs/</code>; the debug trace of hooks can be switched on with <code>touch ~/.claude/claude-deck/debug</code>.</p>
+          <p>On Windows, one read-only command collects all of that at once — run it in PowerShell and paste the output: <code>irm https://claudeck.dev/support/windows-check.ps1 -OutFile $env:TEMP\claudeck-check.ps1; powershell -NoProfile -ExecutionPolicy Bypass -File $env:TEMP\claudeck-check.ps1</code></p>
           <div class="cta">
             <a class="btn btn-primary" href="https://github.com/onavascuez/ClauDeckWeb/issues/new?template=bug_report.md" target="_blank" rel="noopener">Report an issue</a>
             <a class="btn btn-ghost" href="https://github.com/onavascuez/ClauDeckWeb/discussions" target="_blank" rel="noopener">Ask a question</a>

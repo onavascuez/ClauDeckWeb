@@ -8,6 +8,13 @@ labels: bug
 **Edition and version**
 ClauDeck / ClauDeck Lite, version shown in the Stream Deck app (e.g. 2.0.0.0).
 
+**Windows: run this first**
+In PowerShell — read-only, prints no token — and paste the output at the end of this report:
+
+```powershell
+irm https://claudeck.dev/support/windows-check.ps1 -OutFile $env:TEMP\claudeck-check.ps1; powershell -NoProfile -ExecutionPolicy Bypass -File $env:TEMP\claudeck-check.ps1
+```
+
 **Environment**
 - OS and version (macOS 15.x / Windows 11):
 - Stream Deck app version:

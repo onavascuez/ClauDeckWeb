@@ -1,0 +1,95 @@
+title: "[Q&A] "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for asking. Most support questions are answered in one round trip if the
+        boxes below are filled — without them the first reply is always "which versions?".
+
+        **On Windows, one command answers almost all of this.** In PowerShell:
+
+        ```powershell
+        irm https://claudeck.dev/support/windows-check.ps1 -OutFile $env:TEMP\claudeck-check.ps1; powershell -NoProfile -ExecutionPolicy Bypass -File $env:TEMP\claudeck-check.ps1
+        ```
+
+        It is read-only and prints no token. Paste its output in the last box.
+
+  - type: dropdown
+    id: edition
+    attributes:
+      label: Which plugin
+      options:
+        - ClauDeck
+        - ClauDeck Lite
+        - Both installed
+        - Not sure
+    validations:
+      required: true
+
+  - type: input
+    id: plugin-version
+    attributes:
+      label: Plugin version
+      description: Stream Deck app → right-click the ClauDeck key → the version is in the property inspector footer, or in the Marketplace entry.
+      placeholder: "1.1.1.0"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system
+      options:
+        - Windows 11
+        - Windows 10
+        - macOS
+    validations:
+      required: true
+
+  - type: input
+    id: os-version
+    attributes:
+      label: OS version
+      description: "Windows: Win+R → `winver`. macOS:  → About This Mac."
+      placeholder: "Windows 11 23H2 build 22631.4317"
+    validations:
+      required: true
+
+  - type: input
+    id: streamdeck-version
+    attributes:
+      label: Stream Deck app version
+      description: Stream Deck → ⚙ → About. ClauDeck needs **7.1 or newer**; on older versions the plugin does not load at all.
+      placeholder: "7.1.2"
+    validations:
+      required: true
+
+  - type: input
+    id: claude-version
+    attributes:
+      label: Claude Code version
+      description: "Run `claude --version`. If the command is not found, write \"not installed\"."
+      placeholder: "2.0.31"
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-happens
+    attributes:
+      label: What happens
+      description: What you did, what you expected, what the deck actually showed. For a key that misbehaves, say exactly what text or icon it shows — a screenshot of the key and of its settings panel is ideal.
+    validations:
+      required: true
+
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Diagnostics output / plugin log
+      description: |
+        Windows: the output of the command at the top of this form.
+        macOS: the newest file in `~/Library/Application Support/com.elgato.StreamDeck/Plugins/dev.claudeck.streamdeck.sdPlugin/logs/`.
+        For hook problems, run `touch ~/.claude/claude-deck/debug` first and add `~/.claude/claude-deck/hooks.log`.
+      render: shell
+    validations:
+      required: false
